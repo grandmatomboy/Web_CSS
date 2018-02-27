@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="utf-8">
+	<title>[강의] CSS 2/2</title>
+	<link rel="stylesheet" href="./style.css">
+</head>
+<body class="preview__">
+
+
+
+
+	<section id="animation" class="animation">
+		<style>
+			.animation {}
+		</style>
+		<h1>animation-direction</h1>
+		<div class="main">
+			
+		</div>
+	</section>
+
+
+
+
+	<section id="perspective" class="perspective">
+		<style>
+			.perspective {}
+			.perspective .main {
+				margin: 0 auto; 
+				width: 200px; 
+				height: 200px; 
+				background-color: #ddd; 
+				perspective: 150px; 
+				/*perspective-origin: 20px 75px; */
+				/*perspective-origin: 100px 75px; */
+				/*perspective-origin: 20px 100px; */
+				perspective-origin: 100px 135px; 
+			}
+			.perspective .main div {
+				margin: 0 auto; 
+				border: 1px solid green; 
+				width: 200px; 
+				height: 200px; 
+				transform: rotateX(45deg); 
+				background-color: #eee; 
+				box-shadow: 1px 1px 3px green; 
+				opacity: 0.5;
+				text-align: center;
+				line-height: 200px; 
+			}
+		</style>
+		<h1>perspective</h1>
+		<div class="main">
+			<div>1</div>
+		</div>
+	</section>
+
+
+	<section id="transform" class="transform">
+		<style>
+			.transform {}
+			.transform .main { padding-bottom: 10em; }
+			.transform .main:after { content: ""; display: block; clear: both; }
+			.transform .main div {
+				float: left; 
+				margin: .5em; 
+				border-width: 1px; 
+				border-style: solid; 
+				width: 100px; 
+				height: 100px;
+				font-size: 1.5em;
+				text-align: center;
+				line-height: 100px; 
+				overflow: hidden;
+			}
+			.transform .clearboth { clear: both; }
+
+			.transform .case1, .transform .case2, .transform .case3 { border-color: #ddd; }
+			.transform .case1 { transform: translate(200px, 190px); }
+			.transform .case2 { transform: translateX(200px); }
+			.transform .case3 { transform: translateY(150px); }
+
+			.transform .case4, .transform .case5, .transform .case6 { border-color: #d3c33d; }
+			.transform .case4 { transform: scale(1.5, 1.5); }
+			.transform .case5 { transform: scaleX(1.5); }
+			.transform .case6 { transform: scaleY(1.5); }
+
+			.transform .case7, .transform .case8, .transform .case9 { border-color: #a3d2e3; }
+			.transform .case7 { transform: rotate(90deg); }
+			.transform .case8 { transform: rotate(180deg); }
+			.transform .case9 { transform: rotate(-90deg); }
+
+			.transform .case10, 
+			.transform .case11, 
+			.transform .case12, 
+			.transform .case13 { border-color: #d392ae; }
+			.transform .case10 { transform: skewX(20deg); }
+			.transform .case11 { transform: skewY(20deg); }
+			.transform .case12 { transform: skew(20deg, 20deg); }
+			.transform .case13 { 
+				transform: skewX(-20deg); 
+				border-radius: 5em;
+			}
+
+			.transform .case14 { transform: matrix(1.5, 0.3, 0.3, 1.5, 100, -200);  border-color: green; }
+
+			.transform .main .case15 { 
+				border-color: #2dcede;
+				overflow: auto; 
+			}
+			.transform .case15 span {
+				display: block; 
+				width: 100%; 
+				height: 100%; 
+				background-color: #eee; 
+				transform: rotate(90deg);
+			}
+			.transform .case15 span { transform-origin: top; }
+			.transform .case16 span { transform-origin: right; }
+			.transform .case17 span { transform-origin: bottom; }
+			.transform .case18 span { transform-origin: left; }
+		</style>
+		<h1>transform</h1>
+		<div class="main">
+			<div class="case1">1</div>
+			<div class="case2">2</div>
+			<div class="case3">3</div>
+			<div class="case4 clearboth">4</div>
+			<div class="case5">5</div>
+			<div class="case6">6</div>
+			<div class="case7 clearboth">7</div>
+			<div class="case8">8</div>
+			<div class="case9">9</div>
+			<div class="case10 clearboth">10</div>
+			<div class="case11">11</div>
+			<div class="case12">12</div>
+			<div class="case13">13</div>
+			<div class="case14 clearboth">14</div>
+			<div class="case15"><span>15</span></div>
+			<div class="case15 case16"><span>16</span></div>
+			<div class="case15 case17"><span>17</span></div>
+			<div class="case15 case18"><span>18</span></div>
+		</div>
+	</section>
+
+
+	<section id="blendMode" class="blendMode">
+		<style>
+			.blendMode {}
+			.blendMode .main:after { content: ""; display: block; clear: both; }
+			.blendMode .main p {
+				float: left; 
+				margin: 5px; 
+				width: 130px; 
+				height: 130px; 
+				border: 1px solid green; 
+				background:  url('./image4.png') no-repeat bottom right, url('./image3.png') no-repeat top left; 
+				background-color: #ddd; 
+				background-size: 90px 90px; 
+			}
+			.blendMode .mode1 { background-blend-mode: normal; }
+			.blendMode .mode2 { background-blend-mode: multiple; }
+
+			.blendMode .mode3 { background-blend-mode: screen; }
+			.blendMode .mode4 { background-blend-mode: overlay; }
+			.blendMode .mode5 { background-blend-mode: darken; }
+			.blendMode .mode6 { background-blend-mode: lighten; }
+			.blendMode .mode7 { background-blend-mode: color-dodge; }
+			.blendMode .mode8 { background-blend-mode: color-burn; }
+			.blendMode .mode9 { background-blend-mode: hard-light; }
+			.blendMode .mode10 { background-blend-mode: soft-light; }
+			.blendMode .mode11 { background-blend-mode: difference; }
+			.blendMode .mode12 { background-blend-mode: exclusion; }
+
+			.blendMode .mode13 { background-blend-mode: hue; }
+			.blendMode .mode14 { background-blend-mode: saturation; }
+			.blendMode .mode15 { background-blend-mode: color; }
+			.blendMode .mode16 { background-blend-mode: luminosity; }
+		</style>
+		<h1>blendMode</h1>
+		<div class="main">
+			<p class="mode1">1</p>
+			<p class="mode2">2</p>
+			<p class="mode3">3</p>
+			<p class="mode4">4</p>
+			<p class="mode5">5</p>
+			<p class="mode6">6</p>
+			<p class="mode7">7</p>
+			<p class="mode8">8</p>
+			<p class="mode9">9</p>
+			<p class="mode10">10</p>
+			<p class="mode11">11</p>
+			<p class="mode12">12</p>
+			<p class="mode13">13</p>
+			<p class="mode14">14</p>
+			<p class="mode15">15</p>
+			<p class="mode16">16</p>
+		</div>
+	</section>
+
+
+	<section id="objectFit" class="objectFit">
+		<style>
+			.objectFit {}
+			.objectFit  .main:after { content: ""; display: block; clear: both; }
+			.objectFit img {
+				float: left; 
+				display: block; 
+				margin: 5px; 
+				border: 2px solid green; 
+				width: 180px; 
+				height: 230px; 
+				object-fit: none; 
+			}
+			.objectFit .img1 { object-fit: fill; }
+			.objectFit .img2 { object-fit: contain; }
+			.objectFit .img3 { object-fit: cover; }
+			.objectFit .img4 { object-fit: scale-down; }
+
+			.objectFit .img5 { 
+				-webkit-object-position: 0 0; 
+				object-position: 0 0; 
+			}
+			.objectFit .img6 { 
+				-webkit-object-position: 100% 100%; 
+				object-position: 100% 100%; 
+			}
+		</style>
+		<h1>object-fit</h1>
+		<div class="main">
+			<img class="img1" src="./image2.png">
+			<img class="img2" src="./image2.png">
+			<img class="img3" src="./image2.png">
+			<img class="img4" src="./image2.png">
+			<img class="img5" src="./image2.png">
+			<img class="img6" src="./image2.png">
+		</div>
+	</section>
+	
+
+
+
+
+	<div id="gradient" class="gradient">
+		<style>
+			.gradient {}
+			.gradient .main:after { content: ""; display: block; clear: both; }
+			.gradient .main div {
+				float: left; 
+				margin: 5px;
+				border: 1px solid #ddd; 
+				width: 90px;
+				height: 90px;  
+				text-align: center;
+				line-height: 90px;
+				overflow: hidden;
+			}
+			.gradient .obj1 { background: linear-gradient(white, black); }
+			.gradient .obj2 { 
+				background: linear-gradient(to right, white, black); 
+				/*background: linear-gradient(to left, white, black); */
+			}
+			.gradient .obj3 { background: linear-gradient(white 20%, black 80%); }
+			.gradient .obj4 { background: linear-gradient(white 50%, black 50%); }
+			.gradient .obj5 { background: linear-gradient(white 30%, black 70%); }
+			.gradient .obj6 { background: linear-gradient(white 40%, black 60%); }
+			.gradient .obj7 { background: linear-gradient(90deg, white, black); } /* -90 값, 90도 이동 */
+			.gradient .obj8 { background: linear-gradient(green, yellow 60%, red); }
+			.gradient .obj9 { background: linear-gradient(to right, blue, white 50%, red); }
+			.gradient .obj10 { background: linear-gradient(to top right, green, white, black); }
+			.gradient .obj11 { background: linear-gradient(to bottom left, green, white, black); }
+			.gradient .obj12 { background: repeating-linear-gradient(white, navy 30px); }
+			.gradient .obj13 { clear: both; }
+			.gradient .obj13 { background: radial-gradient(circle, white 50%, black); }
+			.gradient .obj14 { background: radial-gradient(ellipse, white 50%, black); }
+			.gradient .main .obj13, 
+			.gradient .main .obj14 { height: 192px; }
+			.gradient .obj15 { background: radial-gradient(circle, red, orange, yellow, green, blue, navy, purple); }
+			.gradient .obj16 { background: radial-gradient(50px 80px at 80px 80px, white 50%, black); }
+			.gradient .obj17 { background: radial-gradient(120px 120px at -20px -10px, white 50%, black); }
+			.gradient .obj18 { background: radial-gradient(closest-side at 30px 30px, white 50%, black); }
+			.gradient .obj19 { background: radial-gradient(closest-corner at 30px 30px, white 50%, black); }
+			.gradient .obj20 { background: radial-gradient(farthest-side at 30px 30px, white 50%, black); }
+			.gradient .obj21 { background: radial-gradient(farthest-corner at 30px 30px, white 50%, black); }
+			.gradient .obj22 { background: repeating-radial-gradient(white, black, white 30px); }
+		</style>
+		<h1>gradient</h1>
+		<div class="main">
+			<div class="obj1">1</div>
+			<div class="obj2">2</div>
+			<div class="obj3">3</div>
+			<div class="obj4">4</div>
+			<div class="obj5">5</div>
+			<div class="obj6">6</div>
+			<div class="obj7">7</div>
+			<div class="obj8">8</div>
+			<div class="obj9">9</div>
+			<div class="obj10">10</div>
+			<div class="obj11">11</div>
+			<div class="obj12">12</div>
+			<div class="obj13">13</div>
+			<div class="obj14">14</div>
+			<div class="obj15">15</div>
+			<div class="obj16">16</div>
+			<div class="obj17">17</div>
+			<div class="obj18">18</div>
+			<div class="obj19">19</div>
+			<div class="obj20">20</div>
+			<div class="obj21">21</div>
+			<div class="obj22">22</div>
+			<div class="obj23">23</div>
+		</div>
+	</div>
+
+
+
+
+
+
+	<div id="column" class="column">
+		<style>
+			.column {}
+			.column .main {
+				/*-webkit-column-width: 200px;*/
+				column-width: 200px;
+				column-count: 2;
+			}
+			.column .obj1 { 
+				padding: .1em .5em; 
+				background-color: #eee; 
+			}
+		</style>
+		<h1>column</h1>
+		<div class="main">
+			<p>This module describes multi-column layout in CSS. By using functionality described in this document, style sheets can declare that the content of an element is to be laid out in multiple columns.</p>
+
+			<p>On the Web, tables have also been used to describe multi-column layouts. The main benefit of using CSS-based columns is flexibility; content can flow from one column to another, and the number of columns can vary depending on the size of the viewport. Removing presentation table markup from documents allows them to more easily be presented on various output devices including speech synthesizers and small mobile devices.</p>
+
+			<p>Multi-column layouts are easy to describe in CSS. Here is a simple example:</p>
+			<p><a href="https://drafts.csswg.org/css-multicol-1/#introduction">CSS Multi-column Layout Module. The definition of 'columns' in that specification.</a></p>
+
+			<div class="obj1">
+				<p>className이 'main'에 column을 적용. 개발자도구에서 DOM의 위치가 엄한데 표시가 되길래 'main' 바로 밑에 글을 작성하니 DOM과 상관없이 'main' 오브젝트 다음에 자연스럽게 위치</p>
+				<p>또 신기한거는 'column-width' 사이즈가 확보되었을 때 알아서 column이 나눠지고 그 이전에는 1 column으로 표시된다! 와우..</p>
+			</div>
+		</div>
+	</div>	
+
+</body>
+</html>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="utf-8">
+	<title>[강의] CSS 2/2</title>
+	<link rel="stylesheet" href="./style.css">
+</head>
+<body class="preview__">
+
+
+
+	<section id="cursor" class="cursor">
+		<style>
+			.cursor {}
+			.cursor ul { 
+				margin: 0; 
+				padding: 0; 
+				list-style-type: none; 
+			}
+			.cursor ul:after { content: ''; display: block; clear: both; }
+			.cursor li { 
+				float: left; 
+				margin-right: .2em; 
+				margin-bottom: .2em; 
+				width: 50px; 
+				line-height: 50px;
+				text-align: center; 
+				background-color: #f5f5f5; 
+			}
+			.cursor .auto { cursor: auto; }
+			.cursor .default { cursor: default; }
+			.cursor .none { cursor: none; }
+		</style>
+		<h1>cursor</h1>
+		<div class="main">
+			<ul>
+				<li class="auto">auto</li>
+				<li class="default">default</li>
+				<li class="none">none</li>
+			</ul>
+		</div>
+	</section>
+
+
+	<section id="structuralPseudoClasses" class="structuralPseudoClasses">
+		<style>
+			.structuralPseudoClasses {}
+			.structuralPseudoClasses ul { 
+				margin: 0; 
+				padding: 0; 
+				list-style-type: none; 
+			}
+			.structuralPseudoClasses li { 
+				padding: .5em;
+				border-bottom: 1px solid #ddd; 
+				font-weight: 100; 
+				text-align: center;
+			}
+			.structuralPseudoClasses li:nth-child(2) { text-decoration: underline; }
+			/*.structuralPseudoClasses li:nth-child(n) { color: green; }*/
+			.structuralPseudoClasses li:nth-child(2n) { color: blue; }
+			.structuralPseudoClasses li:nth-child(2n+1):after { content: ' *'; }
+
+			.structuralPseudoClasses li:first-of-type,
+			.structuralPseudoClasses li:last-of-type { font-size: 1.5em; }
+		</style>
+		<h1>nth-child</h1>	
+		<div class="main">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+				<li>9</li>
+				<li>10</li>
+			</ul>
+		</div>
+	</section>
+
+
+
+
+
+	<section id="indeterminate" class="indeterminate">
+		<style>
+			.indeterminate {}
+			.indeterminate input:indeterminate { outline: 4px solid red; background-color: #eee; }
+		</style>
+		<h1>indeterminate</h1>
+		<div class="main">
+			<p><input type="checkbox" name="" id="indeterminate_input"></p>
+			<script>
+				var indeterminate_input = document.getElementById('indeterminate_input'); 
+				indeterminate_input.indeterminate = true; 
+			</script>
+		</div>
+	</section>
+
+
+
+	<section id="attributeSelector" class="attributeSelector">
+		<style>
+			.attributeSelector {}
+			.attributeSelector p { text-decoration: underline; }
+			.attributeSelector p[class=a-b] { color: red; }
+
+			.attributeSelector :target { background-color: #eee; }
+		</style>
+		<h1>attribute selector</h1>
+		<div class="main">
+			<p class="a-b a-c">abc</p>
+			<p class="case1"><a href="#id1">#id1:target</a></p>
+			<p id="id1">#id1</p>
+		</div>
+	</section>
+
+
+
+
+
+	<section id="tabSize" class="tabSize">
+		<style>
+			.tabSize {}
+			.tabSize .case1 { -webkit-tab-size: 4; tab-size: 4; }
+			.tabSize .case2 { -webkit-tab-size: 12; tab-size: 12; }
+		</style>
+		<h1>tab-size</h1>
+		<div class="main">
+			<p class="case1">x	x</p>
+			<p class="case2">x	x</p>
+		</div>
+	</section>
+
+
+
+
+
+	
+	<section id="textEmphasisStyle" class="textEmphasisStyle">
+		<style>	
+			.textEmphasisStyle {}
+			.textEmphasisStyle .case1 { text-emphasis-style: none; }
+			.textEmphasisStyle .case2 { 
+				text-emphasis-style: filled; 
+				text-emphasis-color: green; 
+				text-emphasis-position: over; 
+			}
+			.textEmphasisStyle .case3 { text-emphasis-style: open; }
+			.textEmphasisStyle .case4 { text-emphasis-style: dot; }
+			.textEmphasisStyle .case5 { text-emphasis-style: circle; }
+			/*.textEmphasisStyle .case6 { text-emphasis-style: double-circle; }*/
+			.textEmphasisStyle .case7 { text-emphasis-style: triangle; }
+			.textEmphasisStyle .case8 { 
+				text-emphasis-style: sesame; 
+				text-emphasis-color: orange; 
+				text-emphasis-position: under; 
+			}
+			.textEmphasisStyle .case9 { text-emphasis-style: '*'; }
+		</style>
+		<h1>text-emphasis-style</h1>
+		<div class="main">
+			<p class="case1">none 한글</p>
+			<p class="case2">filled 한글</p>
+			<p class="case3">open 한글</p>
+			<p class="case4">dot 한글</p>
+			<p class="case5">circle 한글</p>
+			<p class="case6">double-circle 한글</p>
+			<p class="case7">triangle 한글</p>
+			<p class="case8">sesame 한글</p>
+			<p class="case9">"*" 한글</p>
+		</div>
+	</section>
+
+
+	
+	<section id="hyphens" class="hyphens">
+		<style>
+			.hyphens {}
+			.hyphens p {
+				width: 90px; 
+				text-align: justify;
+				background-color: #f5f5f5;
+			}
+			.hyphens .case1 { -webkit-hyphens: none; hyphens: none; }
+			.hyphens .case2 { -webkit-hyphens: manual; hyphens: manual; }
+			.hyphens .case3 { -webkit-hyphens: auto; hyphens: auto; }
+		</style>
+		<h1>hyphens</h1>
+		<div class="main">
+			<p class="case1" lang="en">none. <br>Have a nice-day.</p>
+			<p class="case2" lang="en">manual. <br>Have a niceday.</p>
+			<p class="case2" lang="en">manual. <br>Have a nice-day.</p>
+			<p class="case2" lang="en">manual. <br>Have a nice&shy;day.</p>
+			<p class="case3" lang="en">auto. <br>Have a niceday.</p>
+		</div>
+	</section>
+
+
+
+	<section id="textAlignLast" class="textAlignLast">
+		<style>
+			.textAlignLast {}
+			.textAlignLast a { display: block; }
+		</style>
+		<h1>text-align-last</h1>
+		<div class="main">
+			<p>코드는 나중에, <a>주소는 https://developer.mozilla.org/ko/docs/Web/CSS/text-align-last</a></p>
+		</div>
+	</section>
+
+
+	<section id="wordSpacing" class="wordSpacing">
+		<style>
+			.wordSpacing {}
+			.wordSpacing p { background-color: #f5f5f5; }
+			.wordSpacing .case1 { word-spacing: normal; }
+			.wordSpacing .case2 { word-spacing: 20px; }
+			.wordSpacing .case3 { word-spacing: -10px; }
+			.wordSpacing .case4 { word-spacing: 200%; }
+		</style>
+		<h1>word-spacing</h1>
+		<div class="main">
+			<p class="case1">.case1 normal 가 나 다</p>
+			<p class="case2">.case2 20px 가 나 다</p>
+			<p class="case3">.case3 -10px 가 나 다</p>
+			<p class="case4">.case4 200% 가 나 다</p>
+		</div>
+	</section>
+
+
+
+	<section id="letterSpacing" class="letterSpacing">
+		<style>
+			.letterSpacing {}
+			.letterSpacing p { background-color: #f5f5f5; }
+			.letterSpacing .case1 { letter-spacing: normal; }
+			.letterSpacing .case2 { letter-spacing: 10px; }
+			.letterSpacing .case3 { letter-spacing: -2px; }
+		</style>
+		<h1>letter-spacing</h1>
+		<div class="main">
+			<p class="case1">.case letter-spacing normal 가나다</p>
+			<p class="case2">.case letter-spacing normal 가나다</p>
+			<p class="case3">.case letter-spacing normal 가나다</p>
+		</div>
+	</section>
+
+
+
+	<section id="whiteSpace" class="whiteSpace">
+		<style>
+			.whiteSpace {}
+			.whiteSpace p { 
+				width: 50%; 
+				background-color: #f5f5f5; 
+			}
+			.whiteSpace .case1 { white-space: normal; }
+			.whiteSpace .case2 { white-space: nowrap; }
+			.whiteSpace .case3 { white-space: pre; }
+			.whiteSpace .case4 { white-space: pre-wrap; }
+			.whiteSpace .case5 { white-space: pre-line; }
+		</style>
+		<h1>white-space</h1>
+		<div class="main">
+			<p class="case1">
+				동해물과 백두산이 마르고      닳도록 하느님이 보우하사    우리    나라      만세. <br>
+				무궁화 삼천리 화려강산 
+				대한사람 대한으로 
+
+				길이 보전하세 
+
+			</p>
+			<p class="case2">
+				동해물과 백두산이 마르고      닳도록 하느님이 보우하사    우리    나라      만세. <br>
+				무궁화 삼천리 화려강산 
+				대한사람 대한으로 
+
+				길이 보전하세 
+
+			</p>
+			<p class="case3">
+				동해물과 백두산이 마르고      닳도록 하느님이 보우하사    우리    나라      만세. <br>
+				무궁화 삼천리 화려강산 
+				대한사람 대한으로 
+
+				길이 보전하세 
+
+			</p>
+			<p class="case4">
+				동해물과 백두산이 마르고      닳도록 하느님이 보우하사    우리    나라      만세. <br>
+				무궁화 삼천리 화려강산 
+				대한사람 대한으로 
+
+				길이 보전하세 
+
+			</p>
+			<p class="case5">
+				동해물과 백두산이 마르고      닳도록 하느님이 보우하사    우리    나라      만세. <br>
+				무궁화 삼천리 화려강산 
+				대한사람 대한으로 
+
+				길이 보전하세 
+
+			</p>
+		</div>
+	</section>
+
+
+	<section id="textIndent" class="textIndent">
+		<style>
+			.textIndent {}
+			.textIndent p { 
+				width: 50%; 
+				background-color: #f5f5f5; 
+			}
+			.textIndent .case1 { text-indent: 30px; }
+			.textIndent .case2 { text-indent: 10%; }
+			.textIndent .case3 { text-indent: 20px each-line; }
+			.textIndent .case4 { text-indent: 20px hanging; }
+			.textIndent .case5 { text-indent: 20px hanging each-line; }
+		</style>
+		<h1>text-indent</h1>
+		<div class="main">
+			<p class="case1">동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세, 무궁화 삼천리 화려강산 대한사람 대한으로 길이보전하세</p>
+			<p class="case2">동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세, 무궁화 삼천리 화려강산 대한사람 대한으로 길이보전하세</p>
+			<p class="case3">동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세, <br>무궁화 삼천리 화려강산 <br>대한사람 대한으로 길이보전하세</p>
+			<p class="case4">동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세, <br>무궁화 삼천리 화려강산 <br>대한사람 대한으로 길이보전하세</p>
+			<p class="case5">동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세, <br>무궁화 삼천리 화려강산 <br>대한사람 대한으로 길이보전하세</p>
+		</div>
+	</section>
+
+
+
+	<section id="textTransform" class="textTransform">
+		<style>
+			.textTransform {}
+			.textTransform p { background-color: #f5f5f5; }
+			.textTransform .case1 { text-transform: none; }
+			.textTransform .case2 { text-transform: uppercase; }
+			.textTransform .case3 { text-transform: lowercase; }
+			.textTransform .case4 { text-transform: full-width; }
+			.textTransform .case5 { text-transform: capitalize; }
+		</style>
+		<h1>text-transform</h1>
+		<div class="main">
+			<p class="case1">none</p>
+			<p class="case2">uppercase</p>
+			<p class="case3">LOWERCASE</p>
+			<p class="case4">full-width</p>
+			<p class="case5">capitalize, apple, google, soopul</p>
+		</div>
+	</section>
+
+
+
+	<section id="lineBreak" class="lineBreak">
+		<style>
+			.lineBreak {}
+			.lineBreak p {
+				width: 30%; 
+				background-color: #f5f5f5; 
+			}
+			.lineBreak .case1 { -webkit-line-break: auto; line-break: auto; }
+			.lineBreak .case2 { line-break: normal; }
+			.lineBreak .case3 { line-break: strict; }
+			.lineBreak .case4 { line-break: loose; }
+		</style>
+		<h1>line-break</h1>
+		<div class="main">
+			<p class="case1">가나다라마바?사아자차?카?타?파?하?ab?cdef?ghijklmno?pqrst?uvwxyz</p>
+			<p class="case2">가나다라마바?사아자차?카?타?파?하?ab?cdef?ghijklmno?pqrst?uvwxyz</p>
+			<p class="case3">가나다라마바?사-아자-차?카?타-?파?-하-?ab?-cde-f?ghij-klmno?pqrst?uvwxyz</p>
+			<p class="case4">가나다라마바?사아자차?카?타?파?하?ab?cdef?ghijklmno?pqrst?uvwxyz</p>
+		</div>
+	</section>
+
+
+	<section id="wordBreak" class="wordBreak">
+		<style>
+			.wordBreak {}
+			.wordBreak p {
+				width: 30%;
+				background-color: #f5f5f5; 
+			}
+			.wordBreak .case1 { word-break: normal; }
+			.wordBreak .case2 { word-break: break-all; }
+			.wordBreak .case3 { word-break: keep-all; }
+		</style>
+		<h1>word-break</h1>
+		<div class="main">
+			<p class="case1">동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세</p>
+
+			<p class="case2">동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세</p>
+			<p class="case2">Have a nice day. Have a nice day. Have a nice day. </p>
+			<p class="case2">私の名前わキムドンヒョクです。私の名前わキムドンヒョクです。</p>
+
+			<p class="case3">동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세</p>
+			<p class="case3">Have a nice day. Have a nice day. Have a nice day. </p>
+			<p class="case3">私の名前わキムドンヒョクです。私の名前わキムドンヒョクです。</p>
+		</div>
+	</section>
+
+
+
+	<section id="wordWrap" class="wordWrap">
+		<style>
+			.wordWrap {}
+			.wordWrap p {
+				width: 30%; 
+				background-color: #f5f5f5; 
+			}
+			.wordWrap .case1 { word-wrap: normal; }
+			.wordWrap .case2 { word-wrap: break-word; }
+		</style>
+		<h1>word-wrap</h1>
+		<div class="main">
+			<p class="case1">동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세</p>
+			<p class="case1">가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하</p>
+			<p class="case1">Have a nice day. Have a nice day. Have a nice day. </p>
+			<p class="case1">abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</p>
+			<p class="case1">私の名前わキムドンヒョクです。私の名前わキムドンヒョクです。</p>
+
+			<p class="case2">동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세</p>
+			<p class="case2">가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하</p>
+			<p class="case2">Have a nice day. Have a nice day. Have a nice day. </p>
+			<p class="case2">abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</p>
+			<p class="case2">私の名前わキムドンヒョクです。私の名前わキムドンヒョクです。</p>
+		</div>
+	</section>
+
+
+
+	
+
+
+
+
+</body>
+</html>
